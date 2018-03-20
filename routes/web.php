@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pages.home');
-});
+Route::get('/','PostController@show');
+Route::get('/newpost','PostController@newPost');
+Route::post('/savepost', 'PostController@store');
