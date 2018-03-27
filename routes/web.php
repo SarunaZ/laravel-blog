@@ -22,3 +22,4 @@ Route::get('/dashboard','PostController@dashboard');
 Route::patch('/postupdate/{data}/','PostController@upEditPost');
 Auth::routes();
 /*Route::get('/home', 'HomeController@index')->name('home');*/
+Route::post('/post/{post}/comment','CommentController@upComment');

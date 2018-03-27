@@ -14,4 +14,8 @@ class PublicPostController extends Controller
 
         return view('pages.viewPost', compact('data'));
     }
+    public function showPost(Post $post){
+
+        return view('pages.viewPost', compact('post'));
+    }
 }

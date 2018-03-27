@@ -47,7 +47,7 @@
                 <button class="btn btn-primary">
                     {{ __('Login') }}
                 </button>
-                <a href="/newpost"> <div class="btn btn-success">New Post</div></a>
+
             </form>
                 @else
                     <li class="nav-item dropdown">

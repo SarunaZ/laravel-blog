@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use Illuminate\Support\Facades\Gate;
 class PostController extends Controller
 {
  public function __construct()
@@ -11,7 +12,16 @@ class PostController extends Controller
     $this->middleware('auth');
  }
     public function store(){
-        Post::create(request()->all());
+        $this->validate(request(), [
+            'title' => 'required',
+            'body' => 'required'
+        ]);
+        /*Post::create(request()->all());*/
+        Post::create([
+            'user_id' => auth()->id(),
+            'title' => request('title'),
+            'body' => request('body')
+        ]);
         return view('pages.home');
     }
 
@@ -20,7 +30,9 @@ class PostController extends Controller
     }
 
     public function editPost(Post $data){
-
+        if(Gate::denies('edit-post', $data)){
+            return view(page.restriction);
+        }
         return view('pages.editPost', compact('data'));
     }
 
