@@ -8,6 +8,10 @@ class Post extends Model
 {
     protected $fillable = ['user_id','title','body'];
 
+    public function categories()
+    {
+        return $this->hasMany(category::class);
+    }
     public function comments()
     {
         return $this->hasMany(comment::class);

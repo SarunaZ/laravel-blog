@@ -4,6 +4,7 @@
       <table>
           <th>
             <h2>{{$info->title}}</h2>
+
           </th>
           <tr>
               <td>

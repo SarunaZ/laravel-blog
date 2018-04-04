@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\User;
 class PublicPostController extends Controller
 {
     public function show(){
@@ -14,8 +15,9 @@ class PublicPostController extends Controller
 
         return view('pages.viewPost', compact('data'));
     }
-    public function showPost(Post $post){
+    public function computers(){
 
-        return view('pages.viewPost', compact('post'));
+        return view('pages.computers', compact('data'));
     }
+
 }

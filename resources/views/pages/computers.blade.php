@@ -1,4 +1,4 @@
-@extends ('layouts/main')
+﻿@extends ('layouts/main')
 @section('content')
    <h2>{{$data->title}}</h2>
    <h3>{{\App\User::find($data->user_id)->name}}</h3>

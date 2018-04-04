@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\User;
+
 use Illuminate\Support\Facades\Gate;
 class PostController extends Controller
 {
@@ -22,11 +24,12 @@ class PostController extends Controller
             'title' => request('title'),
             'body' => request('body')
         ]);
-        return view('pages.home');
+        return redirect('/');
     }
 
     public function newPost(){
-        return view('pages.new-entry');
+		$data = Post::all();
+        return view('pages.new-entry', compact('data'));
     }
 
     public function editPost(Post $data){
